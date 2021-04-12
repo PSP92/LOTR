@@ -211,7 +211,7 @@ const theBalrog = () => {
   // 2. add a class "the-white" to this element
 
   // 3. in the style.css file, add a css rule to make elements of the class "the-white" have a white background and a grey border
-  $(".buddy").eq(0).text('Gandalf the White').addClass("the-white")
+  $(".buddy").eq(0).text("Gandalf the White").addClass("the-white")
   
 };
 
@@ -224,15 +224,11 @@ const theBalrog = () => {
 const hornOfGondor = () => {
 
   // 1. create a pop-up alert that the horn of gondor has been blown
-  // window.confirm("Gondor has been blown!");
   alert("Gondor has been blown!!");
   // 2. Boromir's been killed by the Uruk-hai! Put a linethrough on Boromir's name
-  
+  $(".buddy").eq(4).css("text-decoration", "line-through")
   // 3. Tricky: Remove the Uruk-Hai from the Baddies on the page
-  // const $ul =$("<ul>")
-  //       ("$baddy").eq(2).removeAttr($ul).eq(4).strike($ul)
-  // $("#baddies").removeAttr(2)
-
+  $(".baddy").eq(2).remove()
 };
 
 // COMMIT YOUR WORK
@@ -244,10 +240,13 @@ const hornOfGondor = () => {
 const itsDangerousToGoAlone = () => {
 
   // 1. take Frodo and Sam out of the fellowship and move them to Mordor (they don't need to be inside a ul in Mordor)
-          $("#Mordor").append($hobbits.eq(0))
-  // 2. add a div with an id of 'mount-doom' to Mordor
+  const $frodo = $(".hobbit").eq(0)
+  const $sam = $(".hobbit").eq(1)
+  $("#Mordor").append($frodo, $sam)
+// 2. add a div with an id of 'mount-doom' to Mordor
       const $div =$("<div>")
       $div.attr("id", "mount-doom")
+      $("#Mordor").append("#mountDoom")
 };
 
 // COMMIT YOUR WORK
@@ -260,12 +259,19 @@ const weWantsIt = () => {
 
   // 1. Create a div with an id of 'gollum' and add it to Mordor
       const $div =$("<div>")
-      $div.attr("id","#Gollum")
-      $("#Mordor").append("Gollum")
-  // 2. Move the ring from Frodo and give it to Gollum
-      $("#Gollum").appendTo("#the-ring")
+      $div.attr("id","#Gollum").appendTo($("#Mordor"))
+      ////////
+      ///NOTE
+      /////
+      // .apppendTo($(""))
+      // select an element on the page and insert it into another:
+      // If an element selected this way is inserted into a single location elsewhere in the DOM, 
+      // it will be moved into the target (not cloned) and 
+      // a new set consisting of the inserted element is returned
+    //  2. Move the ring from Frodo and give it to Gollum
+    $gollum.append($("#the-ring"))
   // 3. Move Gollum into Mount Doom
-$("#Gollum").appendTo("#mount-doom")
+$("#mount-doom").append($gollum)
 };
 
 // COMMIT YOUR WORK
@@ -277,11 +283,11 @@ $("#Gollum").appendTo("#mount-doom")
 const thereAndBackAgain = () => {
 
   // 1. remove Gollum and the Ring from the DOM
-
+  $("#gollum").remove()
   // 2. remove all the baddies from the DOM
-
+   $(".baddy").remove()
   // 3. Move all the hobbits back to the shire
-
+  $("#The-Shire").append($(".hobbit"))
 };
 
 // COMMIT YOUR WORK
