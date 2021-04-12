@@ -175,7 +175,7 @@ function beautifulStranger() {
   // hint: You can get a list of elements by tag name, such as 'aside'
     // $aside.ul =buddy dont forget to come back to this
   // $("aside[3]").text("Aragorn")
-
+ $('.buddy').eq( 3 ).text('Aragorn')
 }
 
 // COMMIT YOUR WORK
@@ -211,7 +211,8 @@ const theBalrog = () => {
   // 2. add a class "the-white" to this element
 
   // 3. in the style.css file, add a css rule to make elements of the class "the-white" have a white background and a grey border
-
+  $(".buddy").eq(0).text('Gandalf the White').addClass("the-white")
+  
 };
 
 // COMMIT YOUR WORK
@@ -223,10 +224,14 @@ const theBalrog = () => {
 const hornOfGondor = () => {
 
   // 1. create a pop-up alert that the horn of gondor has been blown
-
+  // window.confirm("Gondor has been blown!");
+  alert("Gondor has been blown!!");
   // 2. Boromir's been killed by the Uruk-hai! Put a linethrough on Boromir's name
-
+  
   // 3. Tricky: Remove the Uruk-Hai from the Baddies on the page
+  // const $ul =$("<ul>")
+  //       ("$baddy").eq(2).removeAttr($ul).eq(4).strike($ul)
+  // $("#baddies").removeAttr(2)
 
 };
 
@@ -239,9 +244,10 @@ const hornOfGondor = () => {
 const itsDangerousToGoAlone = () => {
 
   // 1. take Frodo and Sam out of the fellowship and move them to Mordor (they don't need to be inside a ul in Mordor)
-
+          $("#Mordor").append($hobbits.eq(0))
   // 2. add a div with an id of 'mount-doom' to Mordor
-
+      const $div =$("<div>")
+      $div.attr("id", "mount-doom")
 };
 
 // COMMIT YOUR WORK
@@ -253,11 +259,13 @@ const itsDangerousToGoAlone = () => {
 const weWantsIt = () => {
 
   // 1. Create a div with an id of 'gollum' and add it to Mordor
-
+      const $div =$("<div>")
+      $div.attr("id","#Gollum")
+      $("#Mordor").append("Gollum")
   // 2. Move the ring from Frodo and give it to Gollum
-
+      $("#Gollum").appendTo("#the-ring")
   // 3. Move Gollum into Mount Doom
-
+$("#Gollum").appendTo("#mount-doom")
 };
 
 // COMMIT YOUR WORK
